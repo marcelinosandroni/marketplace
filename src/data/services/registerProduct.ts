@@ -1,6 +1,6 @@
 import {Product} from '../../domain/entities/product'
 import {RegisterProduct} from '../../domain/usecases/registerProduct'
-import {ProductRepository} from '../contracts/productRepository'
+import {ProductRepository} from '../contracts/database/productRepository'
 import {generateId} from './generateId'
 
 export class RegisterProductService implements RegisterProduct {
@@ -10,7 +10,7 @@ export class RegisterProductService implements RegisterProduct {
     const id = generateId()
     const product = {
       id,
-      ...data
+      ...data,
     }
     const createdProduct = await this.repository.save(product)
 

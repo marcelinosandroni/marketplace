@@ -1,6 +1,6 @@
 import {Product} from '../../domain/entities/product'
 import {ListProducts} from '../../domain/usecases/listProducts'
-import {ProductRepository} from '../contracts/productRepository'
+import {ProductRepository} from '../contracts/database/productRepository'
 
 export class ListProductsService implements ListProducts {
   constructor(private readonly repository: ProductRepository) {}

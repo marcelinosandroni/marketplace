@@ -1,11 +1,11 @@
 import {Schema, model} from 'mongoose'
-import {UserRepository} from '../../../../data/contracts/userRepository'
+import {UserRepository} from '../../../../data/contracts/database/userRepository'
 import {User} from '../../../../domain/entities/user'
 
 const userSchema = new Schema<User>({
   name: String,
   email: String,
-  password: String
+  password: String,
 })
 
 export class UserMongoRepository implements UserRepository {

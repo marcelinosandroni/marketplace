@@ -1,6 +1,6 @@
 import {User} from '../../domain/entities/user'
 import {CreateUser} from '../../domain/usecases/createUser'
-import {UserRepository} from '../contracts/userRepository'
+import {UserRepository} from '../contracts/database/userRepository'
 import {generateId} from './generateId'
 import bcrypt from 'bcrypt'
 import {env} from '../../main/config/env'
@@ -15,7 +15,7 @@ export class CreateUserService implements CreateUser {
     const user = {
       ...data,
       id,
-      password
+      password,
     }
     const createdUser = await this.repository.save(user)
     if (!createdUser) {
